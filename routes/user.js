@@ -65,4 +65,22 @@ userRouter.post("/subscribe", (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
+userRouter.delete("/unsubscribe", (req, res) => {
+  const { followerId, followingId } = req.body;
+
+  userService
+    .unsubscribeFromChannel(followerId, followingId)
+    .then(() => res.status(200).json({ status: "success" }))
+    .catch(err => res.status(400).json({ err }));
+});
+
+userRouter.delete("/deleteuser", (req, res) => {
+  const { id } = req.body;
+
+  userService
+    .deleteUser(id)
+    .then(() => res.status(200).json({ status: "success" }))
+    .catch(err => res.status(400).json(err));
+});
+
 module.exports = userRouter;

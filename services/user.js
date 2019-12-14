@@ -58,4 +58,22 @@ userService.subscribeToChannel = (followerId, followingId) => {
   return db.one(sql, { followerId, followingId });
 };
 
+userService.unsubscribeFromChannel = (followerId, followingId) => {
+  const sql = `
+        DELETE FROM follow 
+        WHERE follower_id = $[followerId] AND following_id = $[followingId];
+    `;
+
+  return db.none(sql, { followerId, followingId });
+};
+
+userService.deleteUser = id => {
+  const sql = `
+        DELETE FROM users
+        WHERE id = $[id];
+    `;
+
+  return db.none(sql, { id });
+};
+
 module.exports = userService;
