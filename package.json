@@ -6,10 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "syed, van , rick",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedaziz27/boonTime-BE.git"
+  },
+  "author": "syed, van , rich",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syedaziz27/boonTime-BE/issues"
+  },
+  "homepage": "https://github.com/syedaziz27/boonTime-BE#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "pg-promise": "^10.3.1"
   }
 }
