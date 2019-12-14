@@ -38,4 +38,24 @@ userService.postUser = (
   });
 };
 
+userService.verifyEmail = id => {
+  const sql = `
+        UPDATE users 
+        SET verified_email = true
+        WHERE id = $[id]
+        RETURNING id;
+    `;
+
+  return db.one(sql, { id });
+};
+
+userService.subscribeToChannel = (followerId, followingId) => {
+  const sql = `
+        INSERT INTO follow (follower_id, following_id)
+        VALUES ($[followerId], $[followingId])
+        RETURNING follower_id, following_id;
+    `;
+  return db.one(sql, { followerId, followingId });
+};
+
 module.exports = userService;

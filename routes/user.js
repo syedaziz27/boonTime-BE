@@ -47,4 +47,22 @@ userRouter.post("/newuser", (req, res) => {
     );
 });
 
+userRouter.put("/email", (req, res) => {
+  const { id } = req.body;
+
+  userService
+    .verifyEmail(id)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+
+userRouter.post("/subscribe", (req, res) => {
+  const { followerId, followingId } = req.body;
+
+  userService
+    .subscribeToChannel(followerId, followingId)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+
 module.exports = userRouter;
