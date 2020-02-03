@@ -29,6 +29,7 @@ CREATE TABLE products
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     name VARCHAR,
     img_url VARCHAR,
+    product_type VARCHAR NOT NULL,
     rating INT,
     link_url VARCHAR NOT NULL,
     description VARCHAR
@@ -77,37 +78,70 @@ users
     dob,social_media,skin_type,skin_color,hair_type, verified_email
     )
 VALUES
-    ('name', 'email', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'skin color', 'hair-type', false ),
-    ('name2', 'email2', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'skin color', 'hair-type', false );
-
+    ('Rich', 'Green@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'black', 'kinky', false ),
+    ('name2', 'email2', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'skin color', 'hair-type', false ),
+    ('Syed ', 'Syed@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brown', 'straight', false ),
+    ('Van', 'Van@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'very light', 'straight curly', false ),
+    ('Jorge', 'Jorge@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'light', 'curly', false ),
+    ('Robert', 'Rob@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brownish', 'straight', false ),
+    ('Rupa', 'Rupa@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brown', 'straight', false ),
+    ('Daniel', 'Dan@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'black', 'curly', false ),
+    ('Carlos', 'Los@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'medium brown', 'curly', false );
 INSERT INTO products
     (
-    user_id, name, img_url,rating, link_url, description
+    user_id, name, img_url,rating, product_type, link_url, description
     )
 VALUES
-    (
-        1, 'prod_name', 'url', 5, 'link', 'good'
-);
+    (1, 'super berry hydrate', 'https://www.sephora.com/product/superberry-hydrate-glow-dream-mask-P440307?icid2=products%20grid:p440307', 'skin', 5, 'link', 'good'),
+    (2, 'Illuminating Hydrator - Radiance + Smoothing', 'https://www.sephora.com/product/sephora-collection-illuminating-hydrator-radiance-smoothing-P455215?icid2=products%20grid:p455215', 'skin', 5, 'link', 'good'),
+    (3, 'The Dewy Skin Cream', 'https://www.sephora.com/product/the-dewy-skin-cream-P441101?icid2=products%20grid:p441101', 'skin', 5, 'link', 'good'),
+    (4, 'Isle Paradise', 'https://www.sephora.com/product/self-tanning-drops-P431180?icid2=products%20grid:p431180', 'skin', 5, 'link', 'good'),
+    (5, 'Green Clean', 'https://www.sephora.com/product/green-clean-makeup-meltaway-cleansing-balm-P417238?icid2=products%20grid:p417238', 'skin', 5, 'link', 'good'),
+    (6, 'Tatcha', 'https://www.sephora.com/product/polished-rice-enzyme-powder-P426340?icid2=products%20grid:p426340', 'skin', 5, 'link', 'good');
 
 INSERT INTO follow
     (follower_id, following_id)
 VALUES
     (1, 2),
-    (2, 1);
+    (2, 3),
+    (3, 2),
+    (4, 1),
+    (5, 1),
+    (6, 1),
+    (7, 1),
+    (8, 4),
+    (9, 3);
 
 INSERT INTO videos
     (
     user_id, title, thumbnail_url, video_url, views,likes, dislikes
     )
 VALUES
-    (
-        1, 'title', 'turl', 'vurl', 12, 2, 2);
+    (1, 'title', 'turl', 'vurl', 12, 2, 2),
+    (2, 'title', 'turl', 'vurl', 12, 2, 2),
+    (3, 'title', 'turl', 'vurl', 12, 2, 2),
+    (4, 'title', 'turl', 'vurl', 12, 2, 2),
+    (5, 'title', 'turl', 'vurl', 12, 2, 2),
+    (6, 'title', 'turl', 'vurl', 12, 2, 2),
+    (7, 'title', 'turl', 'vurl', 12, 2, 2),
+    (8, 'title', 'turl', 'vurl', 12, 2, 2),
+    (9, 'title', 'turl', 'vurl', 12, 2, 2),
+    (1, 'title', 'turl', 'vurl', 12, 2, 2),
+    (2, 'title', 'turl', 'vurl', 12, 2, 2),
+    (3, 'title', 'turl', 'vurl', 12, 2, 2),
+    (3, 'title', 'turl', 'vurl', 12, 2, 2);
 
 INSERT INTO comments
     (
     video_id,user_id, comment, likes, response_to
     )
 VALUES
-    (
-        1, 1, 'hi', 2, 1
-);
+    (1, 1, 'hi', 2, 1),
+    (2, 2, 'Yes', 2, 1),
+    (3, 3, 'No', 2, 1),
+    (4, 1, 'HAHA', 2, 1),
+    (5, 2, 'lol', 2, 1),
+    (6, 5, 'I cant believe it', 2, 1),
+    (7, 4, 'No way', 2, 1),
+    (8, 4, 'Youre bull shitten', 2, 1),
+    (9, 6, 'Whooaaaa', 2, 1);

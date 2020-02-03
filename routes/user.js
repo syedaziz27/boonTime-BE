@@ -65,4 +65,34 @@ userRouter.post("/subscribe", (req, res) => {
     .catch(err => res.status(400).json(err));
 });
 
+userRouter.get('/readuser', (req, res) => {
+
+  const { id } = req.body
+  userService.readuser(id)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+
+userRouter.get('/video', (req, res) => {
+
+  const { id } = req.body
+  userService.readVideo(id)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+
+userRouter.get('/products', (req, res) => {
+
+  const { id } = req.body
+  userService.readProducts(id)
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+userRouter.get('/allproducts', (req, res) => {
+
+  userService.readAllProducts()
+    .then(data => res.status(200).json(data))
+    .catch(err => res.status(400).json(err));
+});
+
 module.exports = userRouter;
