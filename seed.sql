@@ -89,15 +89,15 @@ VALUES
     ('Carlos', 'Los@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'medium brown', 'curly', false );
 INSERT INTO products
     (
-    user_id, name, img_url,rating, product_type, link_url, description
+    user_id, name, img_url, rating, product_type, link_url, description
     )
 VALUES
-    (1, 'super berry hydrate', 'https://www.sephora.com/product/superberry-hydrate-glow-dream-mask-P440307?icid2=products%20grid:p440307', 'skin', 5, 'link', 'good'),
-    (2, 'Illuminating Hydrator - Radiance + Smoothing', 'https://www.sephora.com/product/sephora-collection-illuminating-hydrator-radiance-smoothing-P455215?icid2=products%20grid:p455215', 'skin', 5, 'link', 'good'),
-    (3, 'The Dewy Skin Cream', 'https://www.sephora.com/product/the-dewy-skin-cream-P441101?icid2=products%20grid:p441101', 'skin', 5, 'link', 'good'),
-    (4, 'Isle Paradise', 'https://www.sephora.com/product/self-tanning-drops-P431180?icid2=products%20grid:p431180', 'skin', 5, 'link', 'good'),
-    (5, 'Green Clean', 'https://www.sephora.com/product/green-clean-makeup-meltaway-cleansing-balm-P417238?icid2=products%20grid:p417238', 'skin', 5, 'link', 'good'),
-    (6, 'Tatcha', 'https://www.sephora.com/product/polished-rice-enzyme-powder-P426340?icid2=products%20grid:p426340', 'skin', 5, 'link', 'good');
+    (1, 'super berry hydrate', 'https://www.sephora.com/product/superberry-hydrate-glow-dream-mask-P440307?icid2=products%20grid:p440307', 5, 'skin', 'link', 'good'),
+    (2, 'Illuminating Hydrator - Radiance + Smoothing', 'https://www.sephora.com/product/sephora-collection-illuminating-hydrator-radiance-smoothing-P455215?icid2=products%20grid:p455215', 5, 'skin', 'link', 'good'),
+    (3, 'The Dewy Skin Cream', 'https://www.sephora.com/product/the-dewy-skin-cream-P441101?icid2=products%20grid:p441101', 5, 'skin', 'link', 'good'),
+    (4, 'Isle Paradise', 'https://www.sephora.com/product/self-tanning-drops-P431180?icid2=products%20grid:p431180', 5, 'skin', 'link', 'good'),
+    (5, 'Green Clean', 'https://www.sephora.com/product/green-clean-makeup-meltaway-cleansing-balm-P417238?icid2=products%20grid:p417238', 5, 'skin', 'link', 'good'),
+    (6, 'Tatcha', 'https://www.sephora.com/product/polished-rice-enzyme-powder-P426340?icid2=products%20grid:p426340', 5, 'skin', 'link', 'good');
 
 INSERT INTO follow
     (follower_id, following_id)

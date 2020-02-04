@@ -83,7 +83,8 @@ userRouter.get('/video', (req, res) => {
 
 userRouter.get('/products', (req, res) => {
 
-  const { id } = req.body
+  const { id } = req.body;
+  console.log(req.body)
   userService.readProducts(id)
     .then(data => res.status(200).json(data))
     .catch(err => res.status(400).json(err));
