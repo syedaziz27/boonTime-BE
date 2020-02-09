@@ -4,33 +4,32 @@ const userService = require("../services/user");
 
 userRouter.post("/newuser", (req, res) => {
   const {
+    firstName,
+    lastName,
     username,
     email,
-    picUrl,
     city,
     state,
     zip,
-    bio,
-    dob,
-    uid,
-    socialMedia,
+    birthday,
+    website,
     skinType,
     skinColor,
     hairType
   } = req.body;
 
+  console.log(req.body)
   userService
     .postUser(
+      firstName,
+      lastName,
       username,
       email,
-      picUrl,
       city,
       state,
       zip,
-      bio,
-      dob,
-      uid,
-      socialMedia,
+      birthday,
+      website,
       skinType,
       skinColor,
       hairType
@@ -48,7 +47,9 @@ userRouter.post("/newuser", (req, res) => {
 });
 
 userRouter.put("/email", (req, res) => {
-  const { id } = req.body;
+  const {
+    id
+  } = req.body;
 
   userService
     .verifyEmail(id)
@@ -57,7 +58,10 @@ userRouter.put("/email", (req, res) => {
 });
 
 userRouter.post("/subscribe", (req, res) => {
-  const { followerId, followingId } = req.body;
+  const {
+    followerId,
+    followingId
+  } = req.body;
 
   userService
     .subscribeToChannel(followerId, followingId)
@@ -67,7 +71,9 @@ userRouter.post("/subscribe", (req, res) => {
 
 userRouter.get('/readuser', (req, res) => {
 
-  const { id } = req.body
+  const {
+    id
+  } = req.body
   userService.readuser(id)
     .then(data => res.status(200).json(data))
     .catch(err => res.status(400).json(err));
@@ -75,7 +81,9 @@ userRouter.get('/readuser', (req, res) => {
 
 userRouter.get('/video', (req, res) => {
 
-  const { id } = req.body
+  const {
+    id
+  } = req.body
   userService.readVideo(id)
     .then(data => res.status(200).json(data))
     .catch(err => res.status(400).json(err));
@@ -83,7 +91,9 @@ userRouter.get('/video', (req, res) => {
 
 userRouter.get('/products', (req, res) => {
 
-  const { id } = req.query;
+  const {
+    id
+  } = req.query;
   console.log(req.query)
   console.log(req.body)
   userService.readProducts(id)

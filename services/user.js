@@ -1,37 +1,37 @@
-const { db } = require("./dbConnect");
+const {
+  db
+} = require("./dbConnect");
 const userService = {};
 
 userService.postUser = (
+  firstName,
+  lastName,
   username,
   email,
-  picUrl,
   city,
   state,
   zip,
-  bio,
-  dob,
-  uid,
-  socialMedia,
+  birthday,
+  website,
   skinType,
   skinColor,
   hairType
 ) => {
   const sql = `
-            INSERT INTO users (username,email,pic_url,city,state,zip,bio,dob,uid,social_media,skin_type,skin_color,hair_type)
-            VALUES ($[username],$[email],$[picUrl],$[city],$[state],$[zip],$[bio],$[dob],$[uid],$[socialMedia],$[skinType],$[skinColor],$[hairType])
-            RETURNING id;
+           INSERT INTO users(first_name, last_name, username, email, city, state, zip, birthday, website, skin_type, skin_color, hair_type)
+           VALUES ($[firstName], $[lastName], $[username], $[email], $[city], $[state], $[zip], $[birthday], $[website], $[skinType], $[skinColor], $[hairType])
+           RETURNING id;
         `;
   return db.one(sql, {
+    firstName,
+    lastName,
     username,
     email,
-    picUrl,
     city,
     state,
     zip,
-    bio,
-    dob,
-    uid,
-    socialMedia,
+    birthday,
+    website,
     skinType,
     skinColor,
     hairType
@@ -45,7 +45,9 @@ userService.readuser = id => {
        WHERE id=$[id]
     `;
 
-  return db.one(sql, { id });
+  return db.one(sql, {
+    id
+  });
 };
 
 userService.readVideo = id => {
@@ -55,7 +57,9 @@ userService.readVideo = id => {
        WHERE user_id=$[id]
     `;
 
-  return db.any(sql, { id });
+  return db.any(sql, {
+    id
+  });
 };
 
 userService.readProducts = id => {
@@ -65,7 +69,9 @@ userService.readProducts = id => {
        WHERE user_id=$[id]
     `;
 
-  return db.any(sql, { id });
+  return db.any(sql, {
+    id
+  });
 };
 
 userService.readAllProducts = id => {
@@ -74,7 +80,9 @@ userService.readAllProducts = id => {
        FROM products
     `;
 
-  return db.any(sql, { id });
+  return db.any(sql, {
+    id
+  });
 };
 
 userService.verifyEmail = id => {
@@ -86,7 +94,9 @@ userService.verifyEmail = id => {
         RETURNING id;
     `;
 
-  return db.one(sql, { id });
+  return db.one(sql, {
+    id
+  });
 };
 
 userService.subscribeToChannel = (followerId, followingId) => {
@@ -95,7 +105,10 @@ userService.subscribeToChannel = (followerId, followingId) => {
         VALUES ($[followerId], $[followingId])
         RETURNING follower_id, following_id;
     `;
-  return db.one(sql, { followerId, followingId });
+  return db.one(sql, {
+    followerId,
+    followingId
+  });
 };
 
 module.exports = userService;

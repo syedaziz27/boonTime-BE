@@ -7,16 +7,21 @@ CREATE TABLE users
 (
     id SERIAL PRIMARY KEY,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    first_name VARCHAR NOT NULL,
+    last_name VARCHAR NOT NULL,
     username VARCHAR UNIQUE NOT NULL,
     email VARCHAR UNIQUE NOT NULL,
     pic_url VARCHAR,
     city VARCHAR NOT NULL,
     state VARCHAR NOT NULL,
-    zip INT NOT NULL,
+    zip VARCHAR NOT NULL,
     bio VARCHAR,
-    dob VARCHAR,
+    birthday VARCHAR,
     uid VARCHAR,
-    social_media VARCHAR,
+    website VARCHAR,
+    facebook VARCHAR,
+    twitter VARCHAR,
+    instagram VARCHAR,
     skin_type VARCHAR,
     skin_color VARCHAR,
     hair_type VARCHAR,
@@ -68,25 +73,28 @@ CREATE TABLE comments
 
 INSERT INTO
 users
-    (username,
+    (
+    first_name,
+    last_name,
+    username,
     email,
     pic_url,
     city,
     state,
     zip,
     bio,
-    dob,social_media,skin_type,skin_color,hair_type, verified_email
+    birthday,website,skin_type,skin_color,hair_type, verified_email
     )
 VALUES
-    ('Rich', 'Green@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'black', 'kinky', false ),
-    ('name2', 'email2', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'skin color', 'hair-type', false ),
-    ('Syed ', 'Syed@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brown', 'straight', false ),
-    ('Van', 'Van@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'very light', 'straight curly', false ),
-    ('Jorge', 'Jorge@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'light', 'curly', false ),
-    ('Robert', 'Rob@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brownish', 'straight', false ),
-    ('Rupa', 'Rupa@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'brown', 'straight', false ),
-    ('Daniel', 'Dan@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'black', 'curly', false ),
-    ('Carlos', 'Los@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'social media', 'skin-type', 'medium brown', 'curly', false );
+    ('Rich', 'green', 'richmoney', 'Green@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'black', 'kinky', false ),
+    ('name2', 'lastname', 'idk', 'email2', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'skin color', 'hair-type', false ),
+    ('Syed ', 'aziz', 'azizzzz', 'Syed@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'brown', 'straight', false ),
+    ('Van', 'tran', 'vannytranny', 'Van@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'very light', 'straight curly', false ),
+    ('Jorge', 'bellini', 'bologna', 'Jorge@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'light', 'curly', false ),
+    ('Robert', 'abreu', 'wobbie', 'Rob@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'brownish', 'straight', false ),
+    ('Rupa', 'datta', 'rupaaa', 'Rupa@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'brown', 'straight', false ),
+    ('Daniel', 'ashley', 'justin', 'Dan@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'black', 'curly', false ),
+    ('Carlos', 'TA', 'Los', 'Los@gmail.com', 'url', 'city', 'state', '12312', 'bio', '13/32/2344', 'website', 'skin-type', 'medium brown', 'curly', false );
 INSERT INTO products
     (
     user_id, name, img_url, rating, product_type, link_url, description
